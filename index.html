@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <main class="calculator-container">
+        <aside class="history-panel" id="history-panel">
+            <h2>History</h2>
+            <ul id="history-list"></ul>
+            <p class="history-note">Memory resets on refresh</p>
+        </aside>
+
+        <section class="calculator-body">
+            <div class="display">
+                <div class="previous-operand" id="previous-operand"></div>
+                <div class="current-operand" id="current-operand">0</div>
+            </div>
+            
+            <div class="keypad">
+                <button data-key="Escape" class="span-two btn-alt">AC</button>
+                <button data-key="Backspace" class="btn-alt">DEL</button>
+                <button data-key="/" class="btn-op">÷</button>
+                
+                <button data-key="1">1</button>
+                <button data-key="2">2</button>
+                <button data-key="3">3</button>
+                <button data-key="*" class="btn-op">×</button>
+                
+                <button data-key="4">4</button>
+                <button data-key="5">5</button>
+                <button data-key="6">6</button>
+                <button data-key="+" class="btn-op">+</button>
+                
+                <button data-key="7">7</button>
+                <button data-key="8">8</button>
+                <button data-key="9">9</button>
+                <button data-key="-" class="btn-op">−</button>
+                
+                <button data-key="." class="btn-alt">.</button>
+                <button data-key="0">0</button>
+                <button data-key="Enter" class="span-two btn-equals">=</button>
+            </div>
+        </section>
+    </main>
+
+    <script type="module" src="js/index.js"></script>
+</body>
+</html>
