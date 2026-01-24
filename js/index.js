@@ -131,7 +131,13 @@ deleteButton.addEventListener('click', () => {
 
 document.addEventListener('keydown', (e) => {
     let key = e.key;
-    
+    const allowedKeys = [
+        '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.', 
+        '+', '-', '*', '/', 'Enter', 'Backspace', 'Escape', '%'
+    ];
+
+    if (!allowedKeys.includes(key)) return;
+
     const button = document.querySelector(`button[data-key="${key}"]`);
     
     if (button) {
