@@ -13,3 +13,6 @@ A clean calculator application built with vanilla JavaScript, HTML, and CSS. It 
 *   CSS3 (Grid & Flexbox)
 *   Vanilla JavaScript (ES6 Classes)
 
+## Live Demo
+You can try the application here: [guiledo.github.io/calculator-vanillajs](https://guiledo.github.io/calculator-vanillajs/)
+
