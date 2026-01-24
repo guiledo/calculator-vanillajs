@@ -1,13 +1,18 @@
 :root {
-    --bg-color: #f4f4f9;
-    --calc-bg: #ffffff;
-    --text-color: #333;
-    --accent-color: #4a90e2;
-    --op-color: #f39c12;
-    --equals-color: #27ae60;
-    --alt-color: #e74c3c;
-    --border-radius: 0.5rem;
-    --shadow: 0 0.6rem 1.5rem rgba(0,0,0,0.1);
+    --bg-color: #0f131a;      /* Deep Navy */
+    --calc-bg: #1e232f;       /* Dark Blue-Grey */
+    --text-color: #ffffff;    /* White */
+    
+    --accent-color: #4cd6e6;  /* Neon Cyan */
+    --op-color: #a06cd5;      /* Neon Purple */
+    --equals-color: #4cd6e6;  /* Neon Cyan */
+    --alt-color: #f6ad55;     /* Warm Orange */
+    
+    --btn-bg: #2a303e;        /* Muted Blue-Grey */
+    --btn-hover: #353c4d;     /* Lighter Blue-Grey */
+    
+    --border-radius: 1rem;
+    --shadow: 0 1rem 3rem rgba(0,0,0,0.5);
 }
 
 * {
@@ -19,6 +24,7 @@
 
 body {
     background-color: var(--bg-color);
+    color: var(--text-color);
     min-height: 100vh;
     display: flex;
     justify-content: center;
@@ -45,6 +51,7 @@ body {
     max-height: 31rem;
     display: flex;
     flex-direction: column;
+    border: 1px solid rgba(255,255,255,0.05);
 }
 
 .history-panel h2 {
@@ -63,9 +70,17 @@ body {
 
 #history-list li {
     padding: 0.6rem;
-    border-bottom: 0.0625rem solid #eee;
+    border-bottom: 0.0625rem solid rgba(255,255,255,0.1);
     font-size: 0.85rem;
-    color: #666;
+    color: rgba(255,255,255,0.7);
+}
+
+#history-list::-webkit-scrollbar {
+    width: 0.5rem;
+}
+#history-list::-webkit-scrollbar-thumb {
+    background-color: var(--btn-bg);
+    border-radius: 0.25rem;
 }
 
 .calculator-body {
@@ -75,10 +90,11 @@ body {
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    border: 1px solid rgba(255,255,255,0.05);
 }
 
 .display {
-    background: #2c3e50;
+    background: #151922; /* Very Dark Navy */
     color: white;
     padding: 1.5rem;
     text-align: right;
@@ -91,7 +107,7 @@ body {
 }
 
 .previous-operand {
-    color: rgba(255, 255, 255, 0.75);
+    color: rgba(255, 255, 255, 0.5);
     font-size: 1.1rem;
     min-height: 1.3rem;
 }
@@ -99,13 +115,14 @@ body {
 .current-operand {
     font-size: 2.8rem;
     font-weight: bold;
+    color: var(--accent-color);
 }
 
 .keypad {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 1px;
-    background: #eee;
+    background: var(--bg-color);
 }
 
 button {
@@ -113,29 +130,35 @@ button {
     font-size: 1.4rem;
     border: none;
     outline: none;
-    background-color: #fff;
+    background-color: var(--btn-bg);
+    color: var(--text-color);
     padding: 1.5rem 1rem;
-    transition: background-color 0.1s;
+    transition: background-color 0.1s, color 0.1s;
 }
 
 button:hover {
-    background-color: #fcfcfc;
+    background-color: var(--btn-hover);
 }
 
 button:active, button.active-key {
-    background-color: #f0f0f0;
+    background-color: #3e4658; /* Active Button Grey */
     transform: scale(0.98);
 }
 
 .btn-op {
     color: var(--op-color);
     font-weight: bold;
-    background-color: #fafafa;
+    background-color: var(--btn-bg);
 }
 
 .btn-equals {
     background-color: var(--equals-color);
-    color: white;
+    color: #0f131a; /* Dark text on Cyan */
+    font-weight: bold;
+}
+
+.btn-equals:hover {
+    background-color: #7ce4f0; /* Light Cyan */
 }
 
 .btn-alt {
