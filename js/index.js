@@ -128,3 +128,16 @@ deleteButton.addEventListener('click', () => {
     calculator.delete();
     calculator.updateDisplay();
 });
+
+document.addEventListener('keydown', (e) => {
+    let key = e.key;
+    
+    const button = document.querySelector(`button[data-key="${key}"]`);
+    
+    if (button) {
+        e.preventDefault();
+        button.click();
+        button.classList.add('active-key');
+        setTimeout(() => button.classList.remove('active-key'), 100);
+    }
+});
