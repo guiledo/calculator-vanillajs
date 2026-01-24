@@ -52,6 +52,7 @@ class Calculator {
         const prev = parseFloat(this.previousOperand);
         const current = parseFloat(this.currentOperand);
         if (isNaN(prev) || isNaN(current)) return;
+        const expression = `${this.previousOperand} ${this.operation} ${this.currentOperand}`;
         switch (this.operation) {
             case '+':
                 computation = prev + current;
@@ -62,7 +63,7 @@ class Calculator {
             case '*':
                 computation = prev * current;
                 break;
-            case '÷':
+            case '/':
                 computation = prev / current;
                 break;
             case '%':
@@ -72,13 +73,24 @@ class Calculator {
                 return;
         }
         this.currentOperand = computation;
+        this.addToHistory(expression, computation);
         this.operation = undefined;
         this.previousOperand = '';
     }
 
+    addToHistory(expression, result) {
+        const historyItem = document.createElement('li');
+        historyItem.innerText = `${expression} = ${result}`;
+        this.historyListElement.prepend(historyItem);
+    }
+
     updateDisplay() {
         this.currentOperandElement.innerText = this.currentOperand;
-        this.previousOperandElement.innerText = this.previousOperand;
+        if (this.operation != null) {
+            this.previousOperandElement.innerText = `${this.previousOperand} ${this.operation}`;
+        } else {
+            this.previousOperandElement.innerText = '';
+        }
     }
 }
 
@@ -87,3 +99,32 @@ const calculator = new Calculator(
     currentOperandElement, 
     historyListElement
 );
+
+numberButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        calculator.appendNumber(button.dataset.key);
+        calculator.updateDisplay();
+    });
+});
+
+operationButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        calculator.chooseOperation(button.dataset.key);
+        calculator.updateDisplay();
+    });
+});
+
+equalsButton.addEventListener('click', () => {
+    calculator.compute();
+    calculator.updateDisplay();
+});
+
+allClearButton.addEventListener('click', () => {
+    calculator.clear();
+    calculator.updateDisplay();
+});
+
+deleteButton.addEventListener('click', () => {
+    calculator.delete();
+    calculator.updateDisplay();
+});
