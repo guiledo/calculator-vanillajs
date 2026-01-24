@@ -22,6 +22,21 @@ class Calculator {
         this.operation = undefined;
     }
 
+    delete() {
+        if (this.currentOperand === '0') return;
+        this.currentOperand = this.currentOperand.toString().slice(0, -1);
+        if (this.currentOperand === '') this.currentOperand = '0';
+    }
+
+    appendNumber(number) {
+        if (number === '.' && this.currentOperand.includes('.')) return;
+        if (this.currentOperand === '0' && number !== '.') {
+            this.currentOperand = number.toString();
+        } else {
+            this.currentOperand = this.currentOperand.toString() + number.toString();
+        }
+    }
+
     updateDisplay() {
         this.currentOperandElement.innerText = this.currentOperand;
         this.previousOperandElement.innerText = this.previousOperand;
