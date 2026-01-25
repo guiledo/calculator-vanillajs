@@ -38,7 +38,12 @@ class Calculator {
     }
 
     chooseOperation(operation) {
-        if (this.currentOperand === '') return;
+        if (this.currentOperand === '') {
+            if (this.previousOperand !== '') {
+                this.operation = operation;
+            }
+            return;
+        }
         if (this.previousOperand !== '') {
             this.compute();
         }
@@ -67,11 +72,12 @@ class Calculator {
                 computation = prev / current;
                 break;
             case '%':
-                computation = prev % current;
+                computation = (prev * current) / 100;
                 break;
             default:
                 return;
         }
+        computation = Math.round(computation * 100000000) / 100000000;
         this.currentOperand = computation;
         this.addToHistory(expression, computation);
         this.operation = undefined;
@@ -135,13 +141,9 @@ document.addEventListener('keydown', (e) => {
         '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.', 
         '+', '-', '*', '/', 'Enter', '=', 'Backspace', 'Escape', '%'
     ];
-
     if (!allowedKeys.includes(key)) return;
-
     if (key === '=') key = 'Enter';
-
     const button = document.querySelector(`button[data-key="${key}"]`);
-    
     if (button) {
         e.preventDefault();
         button.click();
