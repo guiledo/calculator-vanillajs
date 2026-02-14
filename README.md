@@ -15,3 +15,8 @@ A clean calculator application built with vanilla JavaScript, HTML, and CSS. It 
 
 ## 🚀 Live Demo
 You can try the application here: [Demo](https://guiledo.github.io/calculator-vanillajs/)
+
+## 📧 Contact
+- **LinkedIn**: [linkedin.com/in/glc42/](https://linkedin.com/in/glc42)
+- **GitHub**: [@guiledo](https://github.com/guiledo)
+- **Email**: glc.professional42@gmail.com
