@@ -2,6 +2,11 @@
 
 A clean calculator application built with vanilla JavaScript, HTML, and CSS. It features a responsive design, keyboard-first support and a running history of calculations.
 
+## 🚀 Live Demo
+You can try the application here: [Demo](https://guiledo.github.io/calculator-vanillajs/)
+
+![calculatorjs-demo](https://github.com/user-attachments/assets/e363113d-7305-436c-9072-032c7edd5d2f)
+
 ## ✨ Features
 *   **Basic Arithmetic**: Addition, subtraction, multiplication, division and percentage.
 *   **History Panel**: Tracks previous calculations.
@@ -12,9 +17,6 @@ A clean calculator application built with vanilla JavaScript, HTML, and CSS. It 
 *   HTML5
 *   CSS3 (Grid & Flexbox)
 *   Vanilla JavaScript (ES6 Classes)
-
-## 🚀 Live Demo
-You can try the application here: [Demo](https://guiledo.github.io/calculator-vanillajs/)
 
 ## 📧 Contact
 - **LinkedIn**: [linkedin.com/in/glc42/](https://linkedin.com/in/glc42)
